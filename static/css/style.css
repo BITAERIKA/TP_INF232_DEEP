@@ -1,0 +1,104 @@
+:root {
+    --bg-color: #f5f7fa;
+    --text-color: #212529;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    --navbar-bg: #2E7D32;
+    --btn-primary-bg: #2E7D32;
+    --btn-primary-border: #1B5E20;
+}
+
+body.dark-mode {
+    --bg-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --card-bg: #2c2c2c;
+    --card-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    --navbar-bg: #1B5E20;
+    --btn-primary-bg: #388E3C;
+    --btn-primary-border: #2E7D32;
+}
+
+body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    transition: background 0.3s, color 0.3s;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar {
+    background-color: var(--navbar-bg) !important;
+}
+
+.card {
+    background-color: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border: none;
+    border-radius: 12px;
+}
+
+.btn-primary {
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-border);
+}
+
+.btn-primary:hover {
+    background-color: #1B5E20;
+    border-color: #1B5E20;
+}
+
+.table {
+    color: var(--text-color);
+}
+
+.hero-section {
+    background: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070') center/cover no-repeat;
+    position: relative;
+    padding: 80px 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(46, 125, 50, 0.7);
+}
+
+.hero-section .container {
+    position: relative;
+}
+
+.logo-small {
+    width: 40px;
+    height: 40px;
+    margin-right: 8px;
+}
+
+.toggle-theme {
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 0.9rem;
+}
+
+.toggle-theme:hover {
+    background: rgba(255,255,255,0.2);
+}
+
+.photo-preview {
+    max-width: 200px;
+    margin-top: 10px;
+    border-radius: 8px;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 40px 0;
+    }
+}
