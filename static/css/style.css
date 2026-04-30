@@ -2,38 +2,81 @@
     --bg-color: #f5f7fa;
     --text-color: #212529;
     --card-bg: #ffffff;
-    --card-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    --card-shadow: 0 6px 20px rgba(0,0,0,0.08);
     --navbar-bg: #2E7D32;
-    --btn-primary-bg: #2E7D32;
-    --btn-primary-border: #1B5E20;
+    --btn-primary-bg: #388E3C;
+    --btn-primary-border: #2E7D32;
+    --accent: #81C784;
+    --danger: #D32F2F;
+    --warning: #FBC02D;
+    --success: #388E3C;
+    --table-stripe: #f2f2f2;
 }
 
 body.dark-mode {
-    --bg-color: #1e1e1e;
+    --bg-color: #1a1a1a;
     --text-color: #e0e0e0;
     --card-bg: #2c2c2c;
-    --card-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    --card-shadow: 0 6px 20px rgba(0,0,0,0.4);
     --navbar-bg: #1B5E20;
-    --btn-primary-bg: #388E3C;
+    --btn-primary-bg: #43A047;
     --btn-primary-border: #2E7D32;
+    --table-stripe: #3a3a3a;
+    color: var(--text-color);
 }
 
 body {
     background: var(--bg-color);
     color: var(--text-color);
-    transition: background 0.3s, color 0.3s;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: background 0.3s, color 0.3s;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 
 .navbar {
     background-color: var(--navbar-bg) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+    font-size: 1.1rem;
+    white-space: nowrap;
+}
+
+.navbar-brand img {
+    filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.3));
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
 }
 
 .card {
     background-color: var(--card-bg);
     box-shadow: var(--card-shadow);
     border: none;
-    border-radius: 12px;
+    border-radius: 16px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-bottom: 20px;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+
+.card-img-top {
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+}
+
+.btn {
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-weight: 500;
+    transition: all 0.3s;
+    white-space: nowrap;
 }
 
 .btn-primary {
@@ -44,61 +87,153 @@ body {
 .btn-primary:hover {
     background-color: #1B5E20;
     border-color: #1B5E20;
+    transform: scale(1.02);
 }
+
+.btn-outline-light {
+    border-radius: 30px;
+}
+
+.hero {
+    background: linear-gradient(135deg, rgba(46,125,50,0.9), rgba(27,94,32,0.9)),
+                url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070') center/cover no-repeat;
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.stat-badge {
+    background: rgba(255,255,255,0.15);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 10px;
+    display: inline-block;
+    min-width: 120px;
+    backdrop-filter: blur(10px);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.etape-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    font-size: 2rem;
+    color: white;
+}
+
+.etat-badge {
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.etat-soumis { background: #FFF3E0; color: #E65100; }
+.etat-en_cours { background: #E3F2FD; color: #0D47A1; }
+.etat-traite { background: #E8F5E9; color: #1B5E20; }
+
+.dark-mode .etat-soumis { background: #4E342E; color: #FFB74D; }
+.dark-mode .etat-en_cours { background: #1A237E; color: #90CAF9; }
+.dark-mode .etat-traite { background: #1B5E20; color: #A5D6A7; }
 
 .table {
     color: var(--text-color);
 }
 
-.hero-section {
-    background: url('https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=2070') center/cover no-repeat;
-    position: relative;
-    padding: 80px 0;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--table-stripe);
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(46, 125, 50, 0.7);
-}
-
-.hero-section .container {
-    position: relative;
-}
-
-.logo-small {
-    width: 40px;
-    height: 40px;
-    margin-right: 8px;
-}
-
-.toggle-theme {
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid white;
-    color: white;
-    border-radius: 20px;
-    padding: 4px 12px;
-    font-size: 0.9rem;
-}
-
-.toggle-theme:hover {
-    background: rgba(255,255,255,0.2);
-}
-
-.photo-preview {
-    max-width: 200px;
-    margin-top: 10px;
+.form-control, .form-select {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid #ccc;
     border-radius: 8px;
-    display: none;
+}
+
+.dark-mode .form-control,
+.dark-mode .form-select {
+    background-color: #444;
+    color: #fff;
+    border-color: #555;
+}
+
+textarea.form-control {
+    resize: vertical;
 }
 
 @media (max-width: 768px) {
-    .hero-section {
-        padding: 40px 0;
+    .hero h1 {
+        font-size: 2rem;
     }
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+    .btn-lg {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    .card-img-top {
+        height: 180px !important;
+        object-fit: cover;
+    }
+    .container, .container-fluid {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    .navbar-nav .btn {
+        margin: 5px 0;
+    }
+    .navbar .btn-outline-light {
+        margin-top: 5px;
+    }
+    .etape-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    .stat-badge {
+        min-width: 90px;
+        padding: 15px;
+        margin: 5px;
+    }
+    .stat-number {
+        font-size: 1.5rem;
+    }
+}
+
+.pagination .page-link {
+    border-radius: 50px;
+    margin: 0 3px;
+    color: var(--btn-primary-bg);
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
 }
